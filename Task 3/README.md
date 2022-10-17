@@ -8,8 +8,11 @@
 <h4>Migrate the tables using "php artisan migrate"</h4>
 <p>To run the application, enter this command on terminal "php artisan serve"</p>
 
-Sample screens
+<h3>Sample screens</h3>
 
-<img src="">
+<h4>Screen 1</h4>
+<img src="https://github.com/veloukarthik2022/interview-tasks/blob/main/Task%203/public/homepage.png">
+<h4>Screen 2</h4>
+<img src="https://github.com/veloukarthik2022/interview-tasks/blob/main/Task%203/public/homepage.png">
 
   
