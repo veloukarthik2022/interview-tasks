@@ -5,15 +5,17 @@
 abstract class Cardetail{
 
     protected $isBroken;
+    protected $type;
 
-    public function __construct($isBroken)
+    public function __construct($type,$isBroken)
     {
         $this->isBroken = $isBroken;
+        $this->type = $type;
     }
 
     public function isBroken()
     {
-        echo $this->isBroken ? "Broken <br>" : "Is not broken <br>";
+        echo $this->isBroken ? $this->type." Broken <br>" : $this->type." is not broken <br>";
     }
 }
 
@@ -48,6 +50,6 @@ class Car{
     }
 }
 
-$car = new Car([new Door(true),new Tyre(false),new Paint(true)]);
+$car = new Car([new Door("Door",false),new Tyre("Tyre",false),new Paint("Paint",true)]);
 
 $car->getCarDetails();
