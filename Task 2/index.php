@@ -41,14 +41,11 @@ class Car
     {
         foreach ($this->details as $detail) {
             if ($detail->isBroken() == true) {
-                echo $type." is Broken<br>";
+                // echo $type." is Broken<br>";
+                return true;
             }
-            else
-            {
-                echo $type." is not broken<br>";
-            }
-
-        }
+           return false;
+        }   
       
         
     }
@@ -58,18 +55,16 @@ class Car
         // MAKE AN IMPLEMENTATION
         foreach ($this->details as $detail) {
             if ($detail->isScratch() == true) {
-                echo $type." scratch<br>";
+                // echo $type." scratch<br>";
+                return true;
             }
-            else
-            { 
-                echo $type." is not scratch<br>";
-            }
+            return false;
         }
        
        
     }
 }
 // new Tyre(true),new Door(false)
-$car = new Car([new Tyre(true,true),new Door(false,false)]);
- $car->isBroken("car")."<br>";
-$car->isPaintingDamaged("paint");
+$car = new Car([new Tyre(true,true),new Door(false,true)]);
+echo $car->isBroken("car")."<br>";
+echo $car->isPaintingDamaged("paint");
