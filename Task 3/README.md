@@ -8,6 +8,8 @@
 <h4>Migrate the tables using "php artisan migrate"</h4>
 <p>To run the application, enter this command on terminal "php artisan serve"</p>
 
+Sample screens
 
+<img src="">
 
   
