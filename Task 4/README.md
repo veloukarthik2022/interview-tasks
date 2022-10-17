@@ -11,8 +11,8 @@
 <p>To run the application, enter this command on terminal "php artisan serve"</p>
  
 
- Market Place API Documentation
-
+<h3>Market Place API Documentation</h3>
+<pre>
 Store Seller Lots
 Endpoint: http://0.0.0.0:8000/api/v1/lots/
 Method: Post
@@ -46,34 +46,25 @@ Response:
 "status":"bidding"
 }
 }
+</pre>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<pre>
 Update Seller Lots
 Endpoint: http://0.0.0.0:8000/api/v1/lots/1
 Method: Put
+
+
 Request:
 {
 "harvest_date":"2018-06-14",
 }
 
+
 Response:
 {
     "status": "success",
 "message": "Your lot is updated successfully"
+
 “data” : 
 {
 “lot_id”:1,
@@ -88,3 +79,7 @@ Response:
 }
 
 }
+</pre>
+
+<p>Swagger API  documentation link</p>
+https://react-cr.herokuapp.com/
