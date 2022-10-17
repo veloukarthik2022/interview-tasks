@@ -1,70 +1,53 @@
 <?php
 
-abstract class carDetail
-{
+
+
+abstract class Cardetail{
+
     protected $isBroken;
-    protected $isScratch;
-    public function __construct(bool $isBroken,bool $isScratch)
+
+    public function __construct($isBroken)
     {
         $this->isBroken = $isBroken;
-        $this->isScratch = $isScratch;
     }
-    public function isBroken(): bool
+
+    public function isBroken()
     {
-        return $this->isBroken;   
-    }
-
-    public function isScratch(): bool
-    {
-        return $this->isScratch;
+        echo $this->isBroken ? "Broken <br>" : "Is not broken <br>";
     }
 }
 
-class Door extends carDetail
-{
+class Door extends Cardetail{
+
 }
 
-class Tyre extends carDetail
-{
+class Tyre extends Cardetail{
+
 }
 
-class Car
-{
+class Paint extends Cardetail{
 
-    private  $details;
+}
+
+class Car{
+
+    protected $details;
+
     public function __construct($details)
     {
         $this->details = $details;
     }
 
-    public function isBroken($type)
+    public function getCarDetails()
     {
-        foreach ($this->details as $detail) {
-            if ($detail->isBroken() == true) {
-                // echo $type." is Broken<br>";
-                return true;
-            }
-           return false;
-        }   
-      
+        foreach($this->details as $details)
+        {
+            $details->isBroken();
+        }
         
     }
-
-    public function isPaintingDamaged($type)
-    {
-        // MAKE AN IMPLEMENTATION
-        foreach ($this->details as $detail) {
-            if ($detail->isScratch() == true) {
-                // echo $type." scratch<br>";
-                return true;
-            }
-            return false;
-        }
-       
-       
-    }
 }
-// new Tyre(true),new Door(false)
-$car = new Car([new Tyre(true,true),new Door(false,true)]);
-echo $car->isBroken("car")."<br>";
-echo $car->isPaintingDamaged("paint");
+
+$car = new Car([new Door(true),new Tyre(false),new Paint(true)]);
+
+$car->getCarDetails();
