@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "cc299107-8f37-4a30-b0a0-e1ee3142faeb",
+		"name": "Market API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Lots",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/lots",   
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"lots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Store Lots",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "company",
+							"value": "new company",
+							"type": "default"
+						},
+						{
+							"key": "lot_name",
+							"value": "new lots",
+							"type": "default"
+						},
+						{
+							"key": "product_name",
+							"value": "atraewraew",
+							"type": "default"
+						},
+						{
+							"key": "weight",
+							"value": "1000",
+							"type": "default"
+						},
+						{
+							"key": "country",
+							"value": "atraewraew",
+							"type": "default"
+						},
+						{
+							"key": "expiry_date",
+							"value": "atraewraew",
+							"type": "default"
+						},
+						{
+							"key": "harvest_date",
+							"value": "atraewraew",
+							"type": "default"
+						},
+						{
+							"key": "status",
+							"value": "created",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/lots",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"lots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Lots",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"company\":\"atraewraewwe\",\r\n\"lot_name\":\"atraewraewwerw\",\r\n\"product_name\":\"atraewraew\",\r\n\"weight\":5,\r\n\"country\":\"atraewraew\",\r\n\"expiry_date\":\"atraewraew\",\r\n\"harvest_date\":\"atraewraew\",\r\n\"status\":\"bidding\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/lots/2",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"lots",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bid Lots",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/bidlots",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"bidlots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Store Lots Bid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"customer\":\"velou\",\r\n\"mobile\":\"1231231\",\r\n\"lot_id\":\"1\",\r\n\"price\":\"10000\",\r\n\"email\":\"velou@gmail.com\",\r\n\"bid_date\":\"12-12-2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/bidlots",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"bidlots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer update bids",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"customer\":\"karthik\",\r\n\"mobile\":\"1231231\",\r\n\"lot_id\":\"1\",\r\n\"price\":\"10\",\r\n\"email\":\"karthik@gmail.com\",\r\n\"bid_date\":\"12-12-2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/bidlots/1",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"bidlots",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Particular Lots Bid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/bids/lots/1",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"bids",
+						"lots",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Customer Bids",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/bidlots/1",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"bidlots",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bid result",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/bid-result",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"bid-result"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
