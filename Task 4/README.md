@@ -82,4 +82,4 @@ Response:
 </pre>
 
 <p>Swagger API  documentation link</p>
-[https://react-cr.herokuapp.com/](https://swagger-reactjs.herokuapp.com/)
+https://swagger-reactjs.herokuapp.com/
