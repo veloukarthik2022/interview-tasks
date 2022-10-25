@@ -15,6 +15,7 @@ class User{
     {
         $email = "< " . $email . " >";
         $this->data .= " " . $email;
+        // echo '"'.$this->data.'"';
     }
 
     public function __toString()
