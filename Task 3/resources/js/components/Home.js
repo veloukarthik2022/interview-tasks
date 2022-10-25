@@ -95,6 +95,9 @@ export default class Home extends Component {
     }
 
     render() {
+
+        
+
         return (
             <div className='container m-5'>
                 <div>
@@ -123,9 +126,8 @@ export default class Home extends Component {
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -133,12 +135,21 @@ export default class Home extends Component {
                                 {this.state.userList && this.state.userList.map((val, i) => {
                                     // console.log(val.name['first']);
                                     let name = JSON.parse(val.name);
+
+                                    if(typeof name == "string")
+                                    {
+                                        let names = JSON.parse(val.name);
+                                        console.log('names',JSON.parse(names));
+                                        // name.title = names.title;
+                                        // name.first = names.first;
+                                        // name.last = names.last;
+                                    }
+
                                     return (
                                         <tr key={i}>
                                             <td>{val.id}</td>
-                                            <td>{this.nameSpace(name.title, name.first)}</td>
-                                            <td>{name.last}</td>
                                             <td>{val.email}</td>
+                                            <td>{val.phone}</td>
                                             <td>
                                                 <Link className='text-primary' to={"user/" + val.id}><i className="bi bi-pencil"></i></Link>{' '}
                                                 <i onClick={() => this.handleDelete(val.id)} className="text-danger bi bi-trash"></i></td>

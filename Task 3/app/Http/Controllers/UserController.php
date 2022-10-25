@@ -109,13 +109,24 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
 
+        // dd($request);
+
+        // return $request;
+
+        $name = json_decode(json_encode($request->name, JSON_UNESCAPED_SLASHES));
+
+        $location = json_decode(json_encode($request->location, JSON_UNESCAPED_SLASHES));
+
+        // return $location;
+
+
         $userCheck = User::where("id", $id)->first();
 
         if ($userCheck) {
             $userdata = array(
                 "gender" => $request->gender,
-                "name" => json_encode($request->name, JSON_UNESCAPED_SLASHES),
-                "location" => json_encode($request->location, JSON_UNESCAPED_SLASHES),
+                "name" => $name,
+                "location" =>$location,
                 "email" => $request->email,
                 "phone" => $request->phone,
                 "picture" => $request->picture

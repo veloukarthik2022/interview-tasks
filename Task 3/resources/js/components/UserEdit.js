@@ -9,15 +9,18 @@ export default function UserEdit(props) {
     const [address, setAddress] = React.useState([]);
     const [malecheck, setMaleCheck] = React.useState();
     const [femalecheck, setFemaleCheck] = React.useState();
-    const [message,setMessage] = React.useState('');
+    const [message, setMessage] = React.useState('');
+
+    
 
     useEffect(() => {
 
         fetch('/api/users/' + id)
             .then((result) => result.json())
             .then((res) => {
-                console.log(res.data.gender);
+                // console.log(JSON.parse(res.data.name));
                 setUserData(res.data);
+               
                 setName(JSON.parse(res.data.name));
                 setLocation(JSON.parse(res.data.location));
                 if (res.data.gender == 'Male' || res.data.gender == 'male') {
@@ -32,6 +35,8 @@ export default function UserEdit(props) {
             })
 
     }, [0])
+
+    
 
     const handleGenderChange = (e) => {
         if (e.target.checked == true) {
@@ -51,12 +56,14 @@ export default function UserEdit(props) {
         let userData = userdata;
         if (Name == 'title' || Name == 'first' || Name == 'last') {
             let nameData = name;
+
             nameData[Name] = value;
-            console.log(nameData);
+            console.log(nameData, 'existing');
             setName(nameData);
 
             let userData = userdata;
             userData['name'] = nameData;
+            console.log(nameData);
         }
 
         if (Name == 'street' || Name == 'number') {
@@ -101,30 +108,56 @@ export default function UserEdit(props) {
 
         console.log(userdata);
 
+        let data = {
+            email:userdata.email,
+            gender:userdata.gender,
+            name:JSON.stringify(userdata.name),
+            location:JSON.stringify(userdata.location),
+            phone:userdata.phone,
+            picture:userdata.picture
+        }
+
+        console.log(data);
+
         // return;
-        
+
         fetch("/api/users/" + id,
             {
                 method: "put",
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify(userdata)
+                body: JSON.stringify(data)
             })
             .then((res) => res.json())
             .then((result) => {
                 console.log(result);
                 if (result.status == "success") {
                     setMessage(result.message);
-                    setTimeout(()=>{
+                    setTimeout(() => {
                         setMessage('');
-                        window.location.href="/";
+                        window.location.href = "/";
                     },
-                    3000)
+                        3000)
                 }
             })
     }
 
+
+    if(typeof name == 'string')
+    {
+        let names = JSON.parse(name);
+        // console.log('n1',names);
+        setName(names);
+    }
+
+    if(typeof location == 'string')
+    {
+        let locations = JSON.parse(location);
+        // console.log('n1',names);
+        setLocation(locations);
+    }
+   
 
     return (
         <div className='container mt-5'>
@@ -144,19 +177,19 @@ export default function UserEdit(props) {
                                     <label>
                                         Title
                                     </label>
-                                    <input type='text' required className='form-control' name='title' onChange={(e) => handleChange(e)} defaultValue={name.title}></input>
+                                    <input type='text' required className='form-control' name='title' onChange={(e) => handleChange(e)} defaultValue={name?.title || name['title']}></input>
                                 </div>
                                 <div className='form-group col-sm-12 col-md-4'>
                                     <label>
                                         FirstName
                                     </label>
-                                    <input type='text' required className='form-control' name='first' onChange={(e) => handleChange(e)} defaultValue={name.first}></input>
+                                    <input type='text' required className='form-control' name='first' onChange={(e) => handleChange(e)} defaultValue={name?.first}></input>
                                 </div>
                                 <div className='form-group col-sm-12 col-md-4'>
                                     <label>
                                         LastName
                                     </label>
-                                    <input type='text' required className='form-control' name='last' onChange={(e) => handleChange(e)} defaultValue={name.last}></input>
+                                    <input type='text' required className='form-control' name='last' onChange={(e) => handleChange(e)} defaultValue={name?.last}></input>
                                 </div>
                             </div>
                         </div>
