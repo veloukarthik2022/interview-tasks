@@ -62,17 +62,17 @@ class CustomerBidController extends Controller
 
             if($bidsCheck)
             {
-                return response()->json(["status"=>"success","message"=>"Your bid already saved"]); 
+                return response()->json(["status"=>"success","message"=>"Your bid already saved"],201); 
             }
 
             $bidLots = BidsLot::create($request->toArray());
 
-            return response()->json(["status"=>"success","message"=>"Your bid saved successfully"]); 
+            return response()->json(["status"=>"success","message"=>"Your bid saved successfully"],200); 
 
         }
         else
         {
-            return response()->json(["status"=>"failed","message"=>"No lots found for this bid"]);
+            return response()->json(["status"=>"failed","message"=>"No lots found for this bid"],400);
         }
         
 
@@ -121,7 +121,7 @@ class CustomerBidController extends Controller
             {
                 $bidLots = $bidsCheck->update($request->toArray());
 
-                return response()->json(["status"=>"success","message"=>"Your bid updated successfully"]); 
+                return response()->json(["status"=>"success","message"=>"Your bid updated successfully"],200); 
             }
 
            
@@ -129,7 +129,7 @@ class CustomerBidController extends Controller
         }
         else
         {
-            return response()->json(["status"=>"failed","message"=>"No lots found for this bid"]);
+            return response()->json(["status"=>"failed","message"=>"No lots found for this bid"],400);
         }
     }
 
@@ -148,13 +148,13 @@ class CustomerBidController extends Controller
         {
             if($bidsCheck->delete())
             {
-                return response()->json(["status"=>"success","message"=>"Your bid deleted successfully"]); 
+                return response()->json(["status"=>"success","message"=>"Your bid deleted successfully"],200); 
             }
             
         }
         else
         {
-            return response()->json(["status"=>"failed","message"=>"No bids data found"]);
+            return response()->json(["status"=>"failed","message"=>"No bids data found"],400);
         }
     }
 
