@@ -13,6 +13,6 @@
 <h4>Screen 1</h4>
 <img src="https://github.com/veloukarthik2022/interview-tasks/blob/main/Task%203/public/homepage.png">
 <h4>Screen 2</h4>
-<img src="https://github.com/veloukarthik2022/interview-tasks/blob/main/Task%203/public/homepage.png">
+<img src="https://github.com/veloukarthik2022/interview-tasks/blob/main/Task%203/public/user-edit.png">
 
   
