@@ -15,12 +15,18 @@ class User{
     {
         $email = "< " . $email . " >";
         $this->data .= " " . $email;
-        echo  '"' . $this->data . '"';
+    }
+
+    public function __toString()
+    {
+        return '"'.$this->data.'"';
     }
 }
 
-$user = new User();
+$user = new User;
 $user->setFirstName("Apple");
 $user->setLastName("Newton");
 $user->setEmail("apple@newton.com");
+
+echo $user;
     

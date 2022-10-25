@@ -57,11 +57,14 @@ class Car
     public function getCarDetails()
     {
         foreach ($this->details as $details) {
-            $details->isBroken();
+            if($details->isBroken())
+            {
+                return true;
+            }
         }
     }
 }
 
-$car = new Car([new Door("Door", true), new Tyre("Tyre", true), new Paint("Paint", true)]);
+$car = new Car([new Door("Door", false), new Tyre("Tyre", false), new Paint("Paint", false)]);
 
 $car->getCarDetails();
