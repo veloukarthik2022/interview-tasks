@@ -65,6 +65,6 @@ class Car
     }
 }
 
-$car = new Car([new Door("Door", false), new Tyre("Tyre", false), new Paint("Paint", false)]);
+$car = new Car([new Door("Door", true), new Tyre("Tyre", false), new Paint("Paint", false)]);
 
 $car->getCarDetails();
