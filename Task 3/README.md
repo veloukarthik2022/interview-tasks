@@ -15,4 +15,7 @@
 <h4>Screen 2</h4>
 <img src="https://github.com/veloukarthik2022/interview-tasks/blob/main/Task%203/public/user-edit.png">
 
+<h4>Video Sample</h4>
+<embed src="https://github.com/veloukarthik2022/interview-tasks/blob/main/Task%203/demo.webm"></embed>
+
   
