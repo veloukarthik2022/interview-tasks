@@ -36,12 +36,10 @@ If lot name duplicate entry following error will be produce
 
 Response:
 {
-    "lot_name": [
-        {
-            "status": "400",
-            "message": "Lots can't duplicate"
-        }
-    ]
+   
+    "status": "400",
+    "message": "Lots can't duplicate"
+       
 }
 
 No issues response below
