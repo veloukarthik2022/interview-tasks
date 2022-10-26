@@ -71,7 +71,7 @@ class UserController extends Controller
 
         // User::create($userdata);
 
-        return  response()->json(["status"=>"success","message" => "Data saved successfully"], 200);
+        return  response()->json(["status"=>200,"message" => "Data saved successfully"], 200);
     }
 
     /**
@@ -133,9 +133,9 @@ class UserController extends Controller
             );
             // return $userdata;
             $userCheck->update($userdata);
-            return response()->json(["status"=>"success","message" => "User update successfully"], 200);
+            return response()->json(["status"=>200,"message" => "User update successfully"], 200);
         }
-        return response()->json(["status"=>"failed","error" => "User not found"], 201);
+        return response()->json(["status"=>400,"error" => "User not found"], 201);
     }
 
     /**
@@ -151,9 +151,9 @@ class UserController extends Controller
 
         if ($userCheck) {
             $userCheck->delete();
-            return response()->json(["status"=>"success","message" => "User Deleted Successfully"], 200);
+            return response()->json(["status"=>200,"message" => "User Deleted Successfully"], 200);
         }
-        return response()->json(["status"=>"failed","error" => "User not found"], 201);
+        return response()->json(["status"=>400,"error" => "User not found"], 201);
     }
 
     public function export()

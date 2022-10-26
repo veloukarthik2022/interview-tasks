@@ -19,7 +19,7 @@ class CustomerBidController extends Controller
         //
         $bidlots = BidsLot::with("lotsDetail")->get();
 
-        return response()->json(["status" => "success", "data" => $bidlots]);
+        return response()->json(["status" => 200, "data" => $bidlots]);
     }
 
     public function lotsBid($id)
@@ -28,9 +28,9 @@ class CustomerBidController extends Controller
 
         if(count($bidlots)>0)
         {
-            return response()->json(["status" => "success", "data" => $bidlots]);
+            return response()->json(["status" => 200, "data" => $bidlots]);
         }
-        return response()->json(["status" => "success", "message" => "No bids found for this lots"]);
+        return response()->json(["status" => 200, "message" => "No bids found for this lots"]);
 
     }
 
@@ -62,17 +62,17 @@ class CustomerBidController extends Controller
 
             if($bidsCheck)
             {
-                return response()->json(["status"=>"success","message"=>"Your bid already saved"],201); 
+                return response()->json(["status"=>200,"message"=>"Your bid already saved"],201); 
             }
 
             $bidLots = BidsLot::create($request->toArray());
 
-            return response()->json(["status"=>"success","message"=>"Your bid saved successfully"],200); 
+            return response()->json(["status"=>200,"message"=>"Your bid saved successfully"],200); 
 
         }
         else
         {
-            return response()->json(["status"=>"failed","message"=>"No lots found for this bid"],400);
+            return response()->json(["status"=>400,"message"=>"No lots found for this bid"],400);
         }
         
 
@@ -121,7 +121,7 @@ class CustomerBidController extends Controller
             {
                 $bidLots = $bidsCheck->update($request->toArray());
 
-                return response()->json(["status"=>"success","message"=>"Your bid updated successfully"],200); 
+                return response()->json(["status"=>200,"message"=>"Your bid updated successfully"],200); 
             }
 
            
@@ -129,7 +129,7 @@ class CustomerBidController extends Controller
         }
         else
         {
-            return response()->json(["status"=>"failed","message"=>"No lots found for this bid"],400);
+            return response()->json(["status"=>400,"message"=>"No lots found for this bid"],400);
         }
     }
 
@@ -148,13 +148,13 @@ class CustomerBidController extends Controller
         {
             if($bidsCheck->delete())
             {
-                return response()->json(["status"=>"success","message"=>"Your bid deleted successfully"],200); 
+                return response()->json(["status"=>200,"message"=>"Your bid deleted successfully"],200); 
             }
             
         }
         else
         {
-            return response()->json(["status"=>"failed","message"=>"No bids data found"],400);
+            return response()->json(["status"=>400,"message"=>"No bids data found"],400);
         }
     }
 

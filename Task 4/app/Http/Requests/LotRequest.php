@@ -44,6 +44,7 @@ class LotRequest extends FormRequest
     {
         return [
             "company.required"=>"The company is required",
+            "lot_name.unique"=>["status"=>"400","message"=>"Lots can't duplicate"]
         ];
     }
 

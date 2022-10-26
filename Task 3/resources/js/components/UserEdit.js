@@ -132,7 +132,7 @@ export default function UserEdit(props) {
             .then((res) => res.json())
             .then((result) => {
                 console.log(result);
-                if (result.status == "success") {
+                if (result.status == 200) {
                     setMessage(result.message);
                     setTimeout(() => {
                         setMessage('');

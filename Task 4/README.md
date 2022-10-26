@@ -29,9 +29,26 @@ Request:
 "status":"bidding"
 }
 
+Request Validation:
+Lot name - duplicate entry not allowing
+
+If lot name duplicate entry following error will be produce
+
 Response:
 {
-    "status": "success",
+    "lot_name": [
+        {
+            "status": "400",
+            "message": "Lots can't duplicate"
+        }
+    ]
+}
+
+No issues response below
+
+Response:
+{
+"status": 200,
 "message": "Your lot is saved successfully"
 “data” : 
 {
@@ -62,7 +79,7 @@ Request:
 
 Response:
 {
-    "status": "success",
+    "status": 200,
 "message": "Your lot is updated successfully"
 
 “data” : 

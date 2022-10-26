@@ -24,11 +24,11 @@ class SellerLotController extends Controller
 
         if(count($lots)>0)
         {
-            return response()->json(["status"=>"success","data"=>$lots],200);
+            return response()->json(["status"=>200,"data"=>$lots],200);
         }
         else
         {
-            return response()->json(["status"=>"failed","message"=>"lots data not found"],400);
+            return response()->json(["status"=>400,"message"=>"lots data not found"],400);
         }
 
     }
@@ -56,11 +56,11 @@ class SellerLotController extends Controller
 
         if($lots)
         {
-            return response()->json(["status"=>"success","message"=>"Your lots saved successfully"],200);
+            return response()->json(["status"=>200,"message"=>"Your lots saved successfully"],200);
         }
         else
         {
-            return response()->json(["status"=>"failed","message"=>"Your lots not saved successfully"],400);
+            return response()->json(["status"=>400,"message"=>"Your lots not saved successfully"],400);
         }
     }
 
@@ -100,11 +100,11 @@ class SellerLotController extends Controller
 
         if($lots)
         {
-            return response()->json(["status"=>"success","message"=>"Your lots update successfully"],200);
+            return response()->json(["status"=>200,"message"=>"Your lots update successfully"],200);
         }
         else
         {
-            return response()->json(["status"=>"failed","message"=>"Your lots not found"],400);
+            return response()->json(["status"=>400,"message"=>"Your lots not found"],400);
         }
     }
 
@@ -121,7 +121,7 @@ class SellerLotController extends Controller
 
         if($bidResult)
         {
-            return response()->json(["status"=>"success","data"=>$bidResult],200);
+            return response()->json(["status"=>200,"data"=>$bidResult],200);
         }
         return response()->json(["status"=>"error","message"=>"No bids found for this lots"],400);
      }
@@ -135,11 +135,11 @@ class SellerLotController extends Controller
         if($lots)
         {
             $lots->delete();
-            return response()->json(["status"=>"success","message"=>"Lots deleted successfully"],200);
+            return response()->json(["status"=>200,"message"=>"Lots deleted successfully"],200);
         }
         else
         {
-            return response()->json(["status"=>"failed","message"=>"lots data not found"],400);
+            return response()->json(["status"=>400,"message"=>"lots data not found"],400);
         }
     }
     

@@ -9027,7 +9027,7 @@ function UserEdit(props) {
       return res.json();
     }).then(function (result) {
       console.log(result);
-      if (result.status == "success") {
+      if (result.status == 200) {
         setMessage(result.message);
         setTimeout(function () {
           setMessage('');
@@ -60792,7 +60792,7 @@ var AwaitRenderStatus;
 
 (function (AwaitRenderStatus) {
   AwaitRenderStatus[AwaitRenderStatus["pending"] = 0] = "pending";
-  AwaitRenderStatus[AwaitRenderStatus["success"] = 1] = "success";
+  AwaitRenderStatus[AwaitRenderStatus[200] = 1] = 200;
   AwaitRenderStatus[AwaitRenderStatus["error"] = 2] = "error";
 })(AwaitRenderStatus || (AwaitRenderStatus = {}));
 
